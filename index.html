@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101322">
+  <title>SUDOKU CLUB</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="logo" href="#" aria-label="Sudoku Club">S<span>•</span>C</a>
+      <div class="top-copy"><span class="status-dot"></span> DAILY BRAIN CLUB</div>
+      <button id="homeBtn" class="icon-btn" title="В меню" aria-label="В меню">⌂</button>
+    </header>
+
+    <section id="menu" class="menu-screen">
+      <div class="hero-copy">
+        <p class="eyebrow">ТВОЙ МОМЕНТ СПОКОЙСТВИЯ</p>
+        <h1>MAKE SPACE<br>FOR <em>FOCUS.</em></h1>
+        <p class="intro">Девять строк. Девять столбцов. Один чистый разум. Выбери сложность и начни партию.</p>
+      </div>
+      <div class="menu-card">
+        <p class="section-label">ВЫБЕРИ УРОВЕНЬ</p>
+        <div class="difficulty">
+          <button class="difficulty-btn selected" data-level="easy"><span class="diff-name">РАЗМИНКА</span><span class="diff-meta">Легко · 36 чисел</span><span class="diff-mark">↗</span></button>
+          <button class="difficulty-btn" data-level="medium"><span class="diff-name">ФОКУС</span><span class="diff-meta">Средне · 30 чисел</span><span class="diff-mark">↗</span></button>
+          <button class="difficulty-btn" data-level="hard"><span class="diff-name">МАРАФОН</span><span class="diff-meta">Сложно · 25 чисел</span><span class="diff-mark">↗</span></button>
+        </div>
+        <button id="startBtn" class="primary-btn">НАЧАТЬ ИГРУ <span>↗</span></button>
+        <div class="best-line"><span>ЛУЧШЕЕ ВРЕМЯ</span><strong id="bestTime">—</strong></div>
+      </div>
+      <div class="menu-footer"><span>01 / THINK CLEAR</span><span>MADE FOR YOUR MIND ✳</span></div>
+    </section>
+
+    <section id="gameScreen" class="game-screen hidden">
+      <div class="game-heading">
+        <div><p class="eyebrow" id="levelLabel">РАЗМИНКА</p><h2>YOUR GRID<span>.</span></h2></div>
+        <div class="timer-wrap"><span class="section-label">ВРЕМЯ</span><strong id="timer">00:00</strong></div>
+      </div>
+      <div class="game-layout">
+        <div class="board-wrap">
+          <div id="board" class="board" role="grid" aria-label="Поле судоку"></div>
+          <div id="message" class="message" aria-live="polite">Выбери клетку и введи число.</div>
+        </div>
+        <aside class="side-panel">
+          <div class="progress-card"><span class="section-label">ЗАПОЛНЕНО</span><strong id="progress">0<span> / 81</span></strong><div class="progress-track"><div id="progressBar"></div></div></div>
+          <div class="tools-card">
+            <p class="section-label">ИНСТРУМЕНТЫ</p>
+            <button id="notesBtn" class="tool-btn">✎ <span>Заметки</span><kbd>N</kbd></button>
+            <button id="hintBtn" class="tool-btn">✦ <span>Подсказка</span><kbd>H</kbd></button>
+            <button id="checkBtn" class="tool-btn">✓ <span>Проверить</span><kbd>↵</kbd></button>
+            <button id="eraseBtn" class="tool-btn">⌫ <span>Очистить</span><kbd>⌫</kbd></button>
+          </div>
+          <button id="newGameBtn" class="secondary-btn">↻ НОВАЯ ПАРТИЯ</button>
+          <button id="pauseBtn" class="secondary-btn">Ⅱ ПАУЗА</button>
+        </aside>
+      </div>
+      <div class="number-pad" aria-label="Выбор числа">
+        <button data-num="1">1</button><button data-num="2">2</button><button data-num="3">3</button><button data-num="4">4</button><button data-num="5">5</button><button data-num="6">6</button><button data-num="7">7</button><button data-num="8">8</button><button data-num="9">9</button><button data-num="0" class="erase-key">⌫</button>
+      </div>
+      <p class="keyboard-help">КЛАВИАТУРА: 1–9 ВВОД · BACKSPACE ОЧИСТИТЬ · N ЗАМЕТКИ · H ПОДСКАЗКА</p>
+    </section>
+
+    <section id="resultScreen" class="result-screen hidden">
+      <div class="result-card">
+        <div class="result-icon">✳</div><p class="eyebrow">ПОЛЕ ЗАПОЛНЕНО</p>
+        <h2>WELL<br><em>PLAYED.</em></h2>
+        <p>Отличная работа. Ты решил судоку за <strong id="finalTime">00:00</strong>.</p>
+        <button id="againBtn" class="primary-btn">ЕЩЁ ОДНУ ПАРТИЮ <span>↗</span></button>
+        <button id="menuBtn" class="secondary-btn">ВЕРНУТЬСЯ В МЕНЮ</button>
+      </div>
+    </section>
+    <div id="pauseOverlay" class="pause-overlay hidden"><div><p class="eyebrow">НЕ ТОРОПИСЬ</p><h2>TAKE A<br><em>BREATH.</em></h2><button id="resumeBtn" class="primary-btn">ПРОДОЛЖИТЬ <span>↗</span></button></div></div>
+  </main>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
